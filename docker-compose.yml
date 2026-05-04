@@ -40,7 +40,11 @@ services:
     build: .
     container_name: task-api
     restart: unless-stopped
-    depends_on: [mongo, kafka]
+    depends_on:
+      mongo:
+        condition: service_started
+      kafka:
+        condition: service_healthy
     ports:
       - "3000:3000"
     environment:
