@@ -79,3 +79,14 @@ After this, check the `task-consumer` container logs. You should see the `post.c
 - `npm start` – run the API
 - `npm run start:consumer` – run the consumer
 - `npm run dev` / `npm run dev:consumer` – same but with nodemon
+
+## In short
+
+This is a small posts service written in a DDD style. The API takes a request, the domain layer validates it, the application layer runs the use case, and the infrastructure layer saves the post to MongoDB and publishes a `post.created` event to Kafka.
+A separate consumer process reads that event and logs it, which is enough to show the write side and the event side talking to each.
+
+## Kafka flow
+
+Producer sends message → Topic
+Kafka stores it in partitions
+Consumers read from partitions
