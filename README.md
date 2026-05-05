@@ -90,3 +90,7 @@ A separate consumer process reads that event and logs it, which is enough to sho
 Producer sends message → Topic
 Kafka stores it in partitions
 Consumers read from partitions
+
+## Deployed URL
+
+http://13.48.47.141:3000
